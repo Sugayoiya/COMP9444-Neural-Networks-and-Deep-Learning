@@ -1,4 +1,4 @@
-https://www.cse.unsw.edu.au/~cs9444/18s2/hw2/index.html
+assignment requirement: https://www.cse.unsw.edu.au/~cs9444/18s2/hw2/index.html
 
 Once you are ready to begin, download the necessary files in Assignment2.zip (http://www.cse.unsw.edu.au/~cs9444/18s2/hw2/Assignment2.zip)
 
