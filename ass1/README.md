@@ -1,6 +1,39 @@
 # COMP9444-Neural-Networks-and-Deep-Learning
 
-assignment requirement: https://www.cse.unsw.edu.au/~cs9444/18s2/hw1/index.html
+### Stage 1: Single-Layer Network
+
+Write a function  onelayer(X, Y, layersize=10)  which creates a TensorFlow model for a one layer neural network (sometimes also called logistic regression). Your model should consist of one fully connected layer with weights w  and biases  b, using softmax activation.
+Your function should take two parameters  X  and  Y that are TensorFlow placeholders as defined in  input_placeholder()  and target_placeholder(). It should return varibles  w, b, logits, preds, batch_xentropy  and  batch_loss, where:
+
+ * w  and  b  are TensorFlow variables representing the weights and biases, respectively
+ * logits  and  preds  are the input to the activation function and its output
+ * xentropy_loss  is the cross-entropy loss for each image in the batch
+ * batch_loss  is the average of the cross-entropy loss for all images in the batch
+
+### Stage 2: Two-Layer Network
+
+Create a TensorFlow model for a Neural Network with two fully connected layers of weights  w1, w2  and biases  b1, b2, with ReLU activation functions on the first layer, and softmax on the second. Your function should take two parameters  X  and  Y that are TensorFlow placeholders as defined in  input_placeholder()  and target_placeholder(). It should return varibles  w1, b1, w2, b2, logits, preds, batch_xentropy  and  batch_loss, where:
+
+ * w1  and  b1  are TensorFlow variables representing the weights and biases of the first layer
+ * w2  and  b2  are TensorFlow variables representing the weights and biases of the second layer
+ * logits  and  preds  are the inputs to the final activation functions and their output
+ * xentropy_loss  is the cross-entropy loss for each image in the batch
+ * batch_loss  is the average of the cross-entropy loss for all images in the batch.
+ 
+### Stage 3: Convolutional Network
+
+Create a TensorFlow model for a Convolutional Neural Network. This network should consist of two convolutional layers followed by a fully connected layer of the form:
+conv_layer1 → conv_layer2 → fully-connected → output
+Note that there are no pooling layers present in this model. Your function should take two parameters  X  and  Y that are TensorFlow placeholders as defined in  input_placeholder()  and target_placeholder(). It should return varibles  conv1, conv2, w, b, logits, preds, batch_xentropy  and  batch_loss, where:
+ 
+ * conv1  is a convolutional layer of  convlayer_sizes[0]  filters of shape  filter_shape
+ * conv2  is a convolutional layer of  convlayer_sizes[1]  filters of shape  filter_shape
+ * w  and  b  are TensorFlow variables representing the weights and biases of the final fully connected layer
+ * logits  and  preds  are the inputs to the final activation functions and their output
+ * xentropy_loss  is the cross-entropy loss for each image in the batch
+ * batch_loss  is the average of the cross-entropy loss for all images in the batch
+ 
+### test command
 
 `export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}`
 
