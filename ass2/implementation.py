@@ -7,23 +7,6 @@ EMBEDDING_SIZE = 50 # Dimensions for each word vector
 
 # 128 200 iter:14000 acc:0.84
 
-# stop_words = set({'ourselves', 'hers', 'between', 'yourself', 'again',
-#                   'there', 'about', 'once', 'during', 'out', 'very', 'having',
-#                   'with', 'they', 'own', 'an', 'be', 'some', 'for', 'do', 'its',
-#                   'yours', 'such', 'into', 'of', 'most', 'itself', 'other',
-#                   'off', 'is', 's', 'am', 'or', 'who', 'as', 'from', 'him',
-#                   'each', 'the', 'themselves', 'below', 'are', 'we',
-#                   'these', 'your', 'his', 'through', 'don', 'me', 'were',
-#                   'her', 'more', 'himself', 'this', 'down', 'should', 'our',
-#                   'their', 'while', 'above', 'both', 'up', 'to', 'ours', 'had',
-#                   'she', 'all', 'no', 'when', 'at', 'any', 'before', 'them',
-#                   'same', 'and', 'been', 'have', 'in', 'will', 'on', 'does',
-#                   'yourselves', 'then', 'that', 'because', 'what', 'over',
-#                   'why', 'so', 'can', 'did', 'not', 'now', 'under', 'he', 'you',
-#                   'herself', 'has', 'just', 'where', 'too', 'only', 'myself',
-#                   'which', 'those', 'i', 'after', 'few', 'whom', 't', 'being',
-#                   'if', 'theirs', 'my', 'against', 'a', 'by', 'doing', 'it',
-#                   'how', 'further', 'was', 'here', 'than'})
 stop_words = set({'ourselves', 'hers', 'between', 'yourself', 'again',
                   'there', 'about', 'once', 'during', 'out', 'very', 'having',
                   'with', 'they', 'own', 'an', 'be', 'some', 'for', 'do', 'its',
@@ -52,35 +35,16 @@ def preprocess(review):
         - word find/replace
     RETURN: the preprocessed review in string form.
     """
-    # print('before:',review)
-    # print()
-
     review = review.lower().replace("<br />", " ")
-    # print('after replace lower and <br />:',review)
-    # print()
-    
-    # strip_special_chars = re.compile("[^A-Za-z0-9 ]+")
-    # review = re.sub(strip_special_chars,"",review.lower())
-    # print('remain only words:',review)
-    # print()
 
-    # review = review.translate(None, string.punctuation)
-    # print('remain only words:',review)
-    # print()
     s = review
-    # punctuations = set(string.punctuation)
     remove_punc = re.compile('[%s]' % re.escape(string.punctuation))
     review = remove_punc.sub(' ',s)
-    # print('remain only words:',review)
-    # print()
 
     remove_stop_words = re.compile(r'\b%s\b' % r'\b|\b'.join(map(re.escape,list(stop_words))))
     review = remove_stop_words.sub("",review)
-    # print('after stop_words:',review)
-    # print()
 
     review = re.sub(' +',' ',review)
-    # print('finally:',review)
 
     processed_review = review.split(' ')
 
